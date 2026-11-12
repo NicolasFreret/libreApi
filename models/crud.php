@@ -79,4 +79,6 @@ class Crud{
 
 }
 
-$crud = new Crud();
+
+
+
