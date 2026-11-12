@@ -11,7 +11,7 @@ class Crud{
 
     static private function singleton():PDO{
         if(! Crud::$bddInstance ){
-            Crud::$bddInstance = new bddConnection('root', 'books', 'localhost', '' );
+            Crud::$bddInstance = new bddConnection('librapi_jhjhjhjh', 'librapi', 'f98jf6sxzg4puxkf4kn9jj9v:3306', 'GI))LjolMXL3Rpm5' );
         }
         return Crud::$bddInstance->database();
     }

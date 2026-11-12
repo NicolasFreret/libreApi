@@ -6,7 +6,7 @@ require 'router.php';
 
 
 
- $router->get('/librAPI/books', 'books');
+ $router->get('/books', 'books');
 //  $router->get('/librAPI/clients', clients());
  $router->run();
   
