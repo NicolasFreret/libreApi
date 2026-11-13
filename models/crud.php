@@ -11,17 +11,20 @@ class Crud{
 
     static private function singleton():PDO{
         if(! Crud::$bddInstance ){
-            Crud::$bddInstance = new bddConnection('librapi_jhjhjhjh', 'librapi', 'f98jf6sxzg4puxkf4kn9jj9v:3306', 'GI))LjolMXL3Rpm5' );
+            Crud::$bddInstance = new bddConnection('librapi_jhjhjhjh', 'librapi', '62.171.190.162:8632', 'GI))LjolMXL3Rpm5' );
         }
         return Crud::$bddInstance->database();
+
     }
 
 
-    public function read(string $table, string $fields = '*', string $conditions = ''){
+    public function read(string $table, string $fields = '*', string $conditions = '', array $params = []){
         
         $conn = Crud::singleton();
-        $stmt = $conn->query("SELECT $fields FROM $table $conditions");
+        $stmt = $conn->prepare("SELECT $fields FROM $table $conditions");
+
         try{
+            $stmt->execute($params);
             $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
             //return count($res) > 1 ? $res : count($res)  == 1 ? $res[0] : [];
             if(count($res) > 1) return $res;
